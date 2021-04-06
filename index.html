@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Golf Scorecard</title>
+</head>
+<body>
+    <div class="mdl layout mdl-js-layout container">
+        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+        <div class="course-selection course-selection-title title">
+            <h1>Select a Course</h1>
+        </div>
+        <div class="course-card-container course-selection"></div>
+        <div class="player-creation player-creation-title title">
+            <h1>Enter Player Names</h1>
+        </div>
+        <div class="player-creation player-creation-container">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input>
+                <label class="mdl-textfield__label" for="player-textfield">Name:</label>
+            </div>
+            <button>Add</button>
+            <ul class="player-list mdl-list"></ul>
+            <h3>0/4 Players Ready!</h3>
+            <button>Play!</button>
+        </div>
+        <div class="score-card score-card-title title">
+            <h1></h1>
+            <button>Go Back</button>
+        </div>
+        <div class="score-card score-card-table mdl-shadow--24dp">
+            <table class="mdl-data-table mdl-js-data-table">
+                <thead>
+                    <tr class="table-head"></tr>
+                </thead>
+                <tbody class="table-body"></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total Scores</th>
+                    </tr>
+                    <tr class="table-totals">
+                        <th class="mdl-data-table__cell--non-numeric" id="hole-total"></th>
+                        <th class="mdl-data-table__cell--non-numeric" id="yard-total"></th>
+                        <th class="mdl-data-table__cell--non-numeric" id="handicap-total"></th>
+                        <th class="mdl-data-table__cell--non-numeric" id="par-total"></th>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <footer></footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mdl-card-image {
+    height: 52px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .mdl-card__actions {
+    height: 52px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .mdl-card-image__filename {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  .title{
+    text-align: center;
+    /* color: #8bc34a; */
+  }
+  
+  .mdl-card{
+    margin-top: 15px;
+  }
+  .player-list {
+    margin-top: 5px;
+  }
+  .mdl-list__item {
+    margin-top: 5px;
+  }
+  
+  h1{
+    font-weight: 300;
+    /* color: #434371; */
+  }
+  h3{
+    font-weight: 300;
+    /* color: #434371; */
+  }
+  
+  .score-card-table{
+     overflow:auto;
+     margin-bottom: 25px;
+  }
+  
+  .score-textfield{
+    width: 50px;
+  }
+  
+  @media (max-width:888px){
+    .score-card-table{
+      max-width: 325px;
+    }
+  }
+  
+  
+  .mdl-layout{
+    background-color: white;
+  }
+  
+  #scoreCardButton{
+    margin: 10px 0px;
+  }
