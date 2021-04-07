@@ -3,8 +3,7 @@ html {
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Merriweather', serif;
-}
+  font-family: 'Noto Sans JP', sans-serif;}
 body {
   margin: 0;
   padding: 0;
@@ -12,18 +11,18 @@ body {
   height: 100%;
 }
 .main-container {
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .menu-container, .setup-container, .game-container {
+  display: flex;
+  margin: 0 auto;
   width: 500px;
   height: 200px;
-  margin: 0 auto;
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -36,7 +35,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  color: #019b4e;
+  color: black;
   font-size: 36px;
   font-style: italic;
 }
@@ -79,29 +78,40 @@ body {
   justify-content: center;
 }
 .game-container {
-  width: 95%;
-  height: auto;
-  padding: 20px 0;
   display: none;
+  padding: 20px 0;
+  height: auto;
+  width: 95%;
   justify-content: center;
-  color: #639708;
   text-align: center;
+  color: green;
 }
 .hole-container, .yard-container, .par-container, .hcp-container, .player-container {
-  margin-bottom: 5px;
   display: flex;
-  width: 95%;
-  border: 1px solid #019b4e;
+  margin-bottom: 5px;
   border-radius: 4px;
+  width: 95%;
   font-size: 12px;
+  border: 1px solid #019b4e;
 }
 .player-name {
-  padding-top: 10px;
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
 }
 .player {
   border: 1px solid #639708;
+}
+.number-modal, .name-modal {
+  display: none;
+  width: 250px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border: 1px solid green;
+  border-radius: 20px;
 }
 .score-message {
   display: none;

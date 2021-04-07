@@ -40,11 +40,11 @@
             </div>
             <div class="select-container">
                 <div class="select-title">Tee:</div>
-                <select id="select-tee">
+                <select id="select-tee" onchange="setTee(this.value)">
                     <option>Select Tee</option>
                 </select>
             </div>
-            <button id="game-button">Play</button>
+            <button id="game-button" onclick="buildCard()">Play</button>
         </div>
         <div class="game-container">
             <div class="hole-container">
@@ -59,6 +59,15 @@
             <div class="hcp-container">
                 <div class="card-title">Hcp:</div>
             </div>
+        </div>
+        <div class="number-modal">
+            <div class="modal-message">Invalid.<br></div>
+            <button id="modal-button" class="modal-button" onclick="clearNumModal()">Ok</button>
+        </div>
+        <div class="name-modal">
+            <div class="modal-message">Duplicate Name <br> Name Needs To Be Changed
+        </div>
+            <button id="modal-name-button" class="modal-button" onclick="clearNameModal()">Ok</button>
         </div>
         <div class="score-message">
         </div>
