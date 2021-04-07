@@ -14,20 +14,20 @@
     <div class="main-container">
         <div class="menu-container">
             <div class="title">It's Time To Play Golf!</div>
-            <button id="start-button">Start</button>
+            <button id="start-button" onclick="loadObject()">Start</button>
         </div>
         <div class="setup-container">
             <div class="setup-title">Game:</div>
             <div class="select-container">
                 <div class="select-title">Course:</div>
-                <select id="select-course">
+                <select id="select-course" onchange="loadCourse(this.value)">
                     <option>Select Course</option>
                 </select>
             </div>
             <div id="player-select">
                 <div class="select-container">
                     <div class="select-title">Players:</div>
-                    <select id="select-player-num">
+                    <select id="select-player-num" onchange="getNames(this.value)">
                         <option>Select Players</option>
                         <option>1</option>
                         <option>2</option>
