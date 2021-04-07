@@ -11,6 +11,7 @@ body {
   height: 100%;
 }
 .main-container {
+  background-image: url('../images/golf.jpg');
   display: flex;
   width: 100%;
   height: 100%;
@@ -84,7 +85,7 @@ body {
   width: 95%;
   justify-content: center;
   text-align: center;
-  color: green;
+  color: black;
 }
 .hole-container, .yard-container, .par-container, .hcp-container, .player-container {
   display: flex;
@@ -92,7 +93,7 @@ body {
   border-radius: 4px;
   width: 95%;
   font-size: 12px;
-  border: 1px solid #019b4e;
+  border: 1px solid black;
 }
 .player-name {
   display: flex;
@@ -130,8 +131,8 @@ body {
   justify-content: center;
   align-items: center;
   background-color: white;
-  color: #639708;
-  border: 1px solid #019b4e;
+  color: black;
+  border: 1px solid black;
   border-radius: 20px;
   margin-top: 5px;
   text-align: center;
@@ -146,14 +147,14 @@ body {
 }
 .score {
   border: 0;
-  color: #639708;
+  color: black;
   text-align: center;
 }
 .player {
-  color: #639708;
+  color: black;
 }
 .in, .out, .total, .hole, .yard, .par, .hcp, .score{
-  border-left: 1px solid #019b4e;
+  border-left: 1px solid black;
 }
 input {
   padding: 0;
@@ -172,7 +173,7 @@ input {
       display: flex;
       flex-direction: column;
       width: 10%;
-      border: 1px solid #019b4e;
+      border: 1px solid black;
       border-radius: 4px;
       font-size: 12px;
   }
@@ -187,7 +188,7 @@ input {
       padding: 1.5px 0;
   }
   .in, .out, .hole, .yard, .par, .hcp, .score{
-      border-bottom: 1px solid #019b4e;
+      border-bottom: 1px solid black;
       border-left: none;
   }
   .total {
@@ -195,7 +196,7 @@ input {
   }
   .card-title {
       overflow: hidden;
-      border-bottom: 1px solid #019b4e;
+      border-bottom: 1px solid black;
       width: 100%;
       height: 10%;
   }

@@ -40,7 +40,6 @@ function loadCourse(courseid) {
     xhttp.open('GET', 'https://golf-courses-api.herokuapp.com/courses/' + courseid, true);
     xhttp.send();
 }
-
 function loadTee() {
     $('#select-tee').html('<option>Select Tee</option>');
     let teeArray = myCourse.data.holes[0].teeBoxes;
@@ -48,11 +47,9 @@ function loadTee() {
         $('#select-tee').append('<option value="' + i + '">' + teeArray[i].teeType + '</option>')
     }
 }
-
 function setTee(tee) {
     teeSelection = tee;
 }
-
 function buildCard() {
     $('.game-container').css('display', 'flex');
     $('.setup-container').css('display', 'none');
@@ -68,13 +65,12 @@ function buildCard() {
         $('.score-message').append(`<div id="score-modal${i}" class="score-modal"></div>`);
     }
 }
-
 function buildHole() {
     for(let i = 1; i <= 18; i++) {
         $('.hole-container').append(`<div id="hole${i}" class="hole">${i}</div>`);
 
         if(i == 9) {
-            $('.hole-container').append(`<div id="outHole" class="out">Out</div>`);
+            $('.hole-container').append(`<div id="out-hole" class="out">Out</div>`);
         }
         if(i == 18) {
             $('.hole-container').append(`<div id="in-hole" class="in">In</div>`);
@@ -82,43 +78,37 @@ function buildHole() {
         }
     }
 }
-
 function buildYard() {
     for(let i = 0; i < 18; i++) {
         $('.yard-container').append(`<div id="yard${i}" class="yard">${myCourse.data.holes[i].teeBoxes[teeSelection].yards}</div>`);
-
         if(i == 8) {
-            $('.yard-container').append(`<div id="outYard" class="out"></div>`);
+            $('.yard-container').append(`<div id="out-yard" class="out"></div>`);
         }
         if(i == 17) {
-            $('.yard-container').append(`<div id="inYard" class="in"></div>`);
-            $('.yard-container').append(`<div id="totalYard" class="total"></div>`);
+            $('.yard-container').append(`<div id="in-yard" class="in"></div>`);
+            $('.yard-container').append(`<div id="total-yard" class="total"></div>`);
         }
     }
-
-    $(`#outYard`).append(calcOut('yard'));
-    $(`#inYard`).append(calcIn('yard'));
-    $(`#totalYard`).append(calcTotal('Yard'));
+    $(`#out-yard`).append(calcOut('yard'));
+    $(`#in-yard`).append(calcIn('yard'));
+    $(`#total-yard`).append(calcTotal('Yard'));
 }
-
 function buildPar() {
     for(let i = 0; i < 18; i++) {
         $('.par-container').append(`<div id="par${i}" class="par">${myCourse.data.holes[i].teeBoxes[teeSelection].par}</div>`);
 
         if(i == 8) {
-            $('.par-container').append(`<div id="outPar" class="out"></div>`);
+            $('.par-container').append(`<div id="out-par" class="out"></div>`);
         }
         if(i == 17) {
-            $('.par-container').append(`<div id="inPar" class="in"></div>`);
-            $('.par-container').append(`<div id="totalPar" class="total"></div>`);
+            $('.par-container').append(`<div id="in-par" class="in"></div>`);
+            $('.par-container').append(`<div id="total-par" class="total"></div>`);
         }
     }
-
-    $(`#outPar`).append(calcOut('par'));
-    $(`#inPar`).append(calcIn('par'));
-    $(`#totalPar`).append(calcTotal('Par'));
+    $(`#out-par`).append(calcOut('par'));
+    $(`#in-par`).append(calcIn('par'));
+    $(`#total-par`).append(calcTotal('Par'));
 }
-
 function buildHcp() {
     for (let i = 0; i < 18; i++) {
         $('.hcp-container').append(`<div id="hcp${i}" class="hcp">${myCourse.data.holes[i].teeBoxes[teeSelection].hcp}</div>`);
@@ -131,17 +121,15 @@ function buildHcp() {
             $('.hcp-container').append(`<div id="total-hcp" class="total"></div>`);
         }
     }
-
     $(`#out-hcp`).append('-');
     $(`#in-hcp`).append('-');
     $(`#total-hcp`).append('-');
 }
-
 function buildPlayers() {
     for (let i = 1; i <= numPlayers; i++) {
         $('.game-container').append(`<div id="player-container${i}" class="player-container"><div class="card-title">${nameArray[i-1]}</div></div>`);
         for(let p = 0; p < 18; p++) {
-            $(`#player-container${i}`).append(`<input id="p${i}score${p}" class="score" type="number" onchange="update-score(${i}, this.value, ${p}, this.id)">`);
+            $(`#player-container${i}`).append(`<input id="p${i}score${p}" class="score" type="number" onchange="updateScore(${i}, this.value, ${p}, this.id)">`);
 
             if(p == 8) {
                 $(`#player-container${i}`).append(`<div id="out-player${i}" class="out">0</div>`);
@@ -153,7 +141,6 @@ function buildPlayers() {
         }
     }
 }
-
 function updateScore(playerNum, value, holeNum, myId) {
     checkNumber(value, myId);
 
@@ -176,7 +163,6 @@ function updateScore(playerNum, value, holeNum, myId) {
         }
         $(`#in-player${playerNum}`).html(inTotal);
     }
-
     outTotal = Number($(`#out-player${playerNum}`).text());
     inTotal = Number($(`#in-player${playerNum}`).text());
     let finalTotal = outTotal + inTotal;
@@ -203,4 +189,77 @@ function compareToPar(playerNum, playerTotal) {
         $(`#score-modal${playerNum}`).css('display', 'flex');
         $(`#score-modal${playerNum}`).html(`<div id="score-message${playerNum}"> Better Luck Next Time ${nameArray[playerNum-1]}! <br> Score: +${comparePar}</div>`);
     }
+}
+function calcOut(rowName) {
+    let outTotal = 0;
+    let outTemp = 0;
+    for(let i = 0; i < 9; i++) {
+        outTemp = Number($(`#${rowName}${i}`).text());
+        outTotal += outTemp;
+    }
+    return outTotal;
+}
+function calcIn(rowName) {
+    let inTotal = 0;
+    let inTemp = 0;
+    for(let i = 9; i < 18; i++) {
+        inTemp = Number($(`#${rowName}${i}`).text());
+        inTotal += inTemp;
+    }
+    return inTotal;
+}
+function calcTotal(rowName) {
+    let outTotal = Number($(`#out${rowName}`).text());
+    let inTotal = Number($(`#in${rowName}`).text());
+
+    return outTotal + inTotal;
+}
+function getNames(playerNum) {
+    numPlayers = Number(playerNum);
+    $('.player-name').html('');
+    for (let i = 1; i <= numPlayers; i++) {
+        $('.player-name').append(`<input placeholder="Enter Name" onchange="checkNames(this.value, ${i}, this.id)" class="player" id="player${i}" type="text">`);
+        nameArray[i-1] = '';
+    }
+}
+function checkNames(name, playNum, thisId) {
+    let validate = true;
+
+    for(let i = 0; i < numPlayers; i++) {
+        if(i != playNum-1) {
+            if(nameArray[i] == name) {
+                validate = false;
+            }
+        }
+    }
+    if(validate) {
+        nameArray[playNum-1] = name;
+    }
+    else {
+        modalId = thisId;
+        displayNameModal()
+    }
+}
+function checkNumber(value, thisId) {
+    if(value < 0) {
+        modalId = thisId;
+        displayNumModal();
+    }
+}
+function displayNumModal() {
+    $('.number-modal').css('display', 'flex');
+}
+
+function clearNumModal() {
+    $('.number-modal').css('display', 'none');
+    $(`#${modalId}`).val('');
+}
+
+function displayNameModal() {
+    $('.name-modal').css('display', 'flex');
+}
+
+function clearNameModal() {
+    $('.name-modal').css('display', 'none');
+    $(`#${modalId}`).val('');
 }
