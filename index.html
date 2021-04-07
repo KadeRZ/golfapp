@@ -2,57 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Golf Scorecard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="CSS/mobileStyle.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Golf Score Card</title>
 </head>
 <body>
-    <div class="mdl layout mdl-js-layout container">
-        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
-        <div class="course-selection course-selection-title title">
-            <h1>Select a Course</h1>
+    <div class="main-container">
+        <div class="menu-container">
+            <div class="title">It's Time To Play Golf!</div>
+            <button id="start-button">Start</button>
         </div>
-        <div class="course-card-container course-selection"></div>
-        <div class="player-creation player-creation-title title">
-            <h1>Enter Player Names</h1>
-        </div>
-        <div class="player-creation player-creation-container">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input>
-                <label class="mdl-textfield__label" for="player-textfield">Name:</label>
+        <div class="setup-container">
+            <div class="setup-title">Game:</div>
+            <div class="select-container">
+                <div class="select-title">Course:</div>
+                <select id="select-course">
+                    <option>Select Course</option>
+                </select>
             </div>
-            <button>Add</button>
-            <ul class="player-list mdl-list"></ul>
-            <h3>0/4 Players Ready!</h3>
-            <button>Play!</button>
+            <div id="player-select">
+                <div class="select-container">
+                    <div class="select-title">Players:</div>
+                    <select id="select-player-num">
+                        <option>Select Players</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+                <div class="player-name">
+                </div>
+            </div>
+            <div class="select-container">
+                <div class="select-title">Tee:</div>
+                <select id="select-tee">
+                    <option>Select Tee</option>
+                </select>
+            </div>
+            <button id="game-button">Play</button>
         </div>
-        <div class="score-card score-card-title title">
-            <h1></h1>
-            <button>Go Back</button>
+        <div class="game-container">
+            <div class="hole-container">
+                <div class="card-title">Hole:</div>
+            </div>
+            <div class="yard-container">
+                <div class="card-title">Yard:</div>
+            </div>
+            <div class="par-container">
+                <div class="card-title">Par:</div>
+            </div>
+            <div class="hcp-container">
+                <div class="card-title">Hcp:</div>
+            </div>
         </div>
-        <div class="score-card score-card-table mdl-shadow--24dp">
-            <table class="mdl-data-table mdl-js-data-table">
-                <thead>
-                    <tr class="table-head"></tr>
-                </thead>
-                <tbody class="table-body"></tbody>
-                <tfoot>
-                    <tr>
-                        <th>Total Scores</th>
-                    </tr>
-                    <tr class="table-totals">
-                        <th class="mdl-data-table__cell--non-numeric" id="hole-total"></th>
-                        <th class="mdl-data-table__cell--non-numeric" id="yard-total"></th>
-                        <th class="mdl-data-table__cell--non-numeric" id="handicap-total"></th>
-                        <th class="mdl-data-table__cell--non-numeric" id="par-total"></th>
-                        </th>
-                    </tr>
-                </tfoot>
-            </table>
+        <div class="score-message">
         </div>
     </div>
-    <footer></footer>
     <script src="js/main.js"></script>
 </body>
 </html>
